@@ -107,17 +107,9 @@ sh test.sh
 If you use this software for research, please cite our paper as follows:
 
 ```
-@InProceedings{Kitaev-2018-SelfAttentive,
-  author    = {Kitaev, Nikita and Klein, Dan},
-  title     = {Constituency Parsing with a Self-Attentive Encoder},
-  booktitle = {Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
-  month     = {July},
-  year      = {2018},
-  address   = {Melbourne, Australia},
-  publisher = {Association for Computational Linguistics},
-}
+
 ```
 
 ## Credits
 
-The code in this repository and portions of this README are based on https://github.com/mitchellstern/minimal-span-parser
+The code in this repository and portions of this README are based on https://github.com/nikitakit/self-attentive-parser
