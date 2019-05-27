@@ -102,15 +102,6 @@ As an example, after extracting the pre-trained model, you can evaluate it on th
 sh test.sh
 ```
 
-## Citation
-
-
-If you use this software for research, please cite our paper as follows:
-
-```
-
-```
-
 ## Credits
 
 The code in this repository and portions of this README are based on https://github.com/nikitakit/self-attentive-parser
