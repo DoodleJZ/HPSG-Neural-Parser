@@ -37,7 +37,7 @@ Pre-trained BERT weights will be automatically downloaded as needed by the `pyto
 
 ## Training
 
-The dependency structures are mainly obtained by converting constituent structure with version 3.3.0 of Stanford parser in the `data/` folder:
+The dependency structures are mainly obtained by converting constituent structure with version 3.3.0 of [Stanford Parser](http://nlp.stanford.edu/software/lex-parser.html) in the `data/` folder:
 
 ```
 java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile 02-21.10way.clean > ptb_train_3.3.0.sd
