@@ -36,7 +36,13 @@ Pre-trained BERT weights will be automatically downloaded as needed by the `pyto
 
 ## Training
 
-The code used to train our parsing models is currently different from the code used to parse sentences in the release version described above, though both are stored in this repository. The training code uses PyTorch and can be obtained by cloning this repository from GitHub. 
+The dependency structures are mainly obtained by converting constituent structure with version 3.3.0 of Stanford parser:
+
+```
+java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile 02-21.10way.clean > ptb_train_3.3.0.sd
+```
+
+The training code uses PyTorch and can be obtained by cloning this repository from GitHub. 
 
 ### Training Instructions
 
@@ -53,16 +59,18 @@ Argument | Description | Default
 `--batch-size` | Number of examples per training update | 250
 `--checks-per-epoch` | Number of development evaluations per epoch | 4
 `--subbatch-max-tokens` | Maximum number of words to process in parallel while training (a full batch may not fit in GPU memory) | 2000
-`--eval-batch-size` | Number of examples to process in parallel when evaluating on the development set | 100
+`--eval-batch-size` | Number of examples to process in parallel when evaluating on the development set | 30
 `--numpy-seed` | NumPy random seed | Random
 `--use-words` | Use learned word embeddings | Do not use word embeddings
 `--use-tags` | Use predicted part-of-speech tags as input | Do not use predicted tags
 `--use-chars-lstm` | Use learned CharLSTM word representations | Do not use CharLSTM
 `--use-elmo` | Use pre-trained ELMo word representations | Do not use ELMo
 `--use-bert` | Use pre-trained BERT word representations | Do not use BERT
-`--bert-model` | Pre-trained BERT model to use if `--use-bert` is passed | `bert-base-uncased`
+`--bert-model` | Pre-trained BERT model to use if `--use-bert` is passed | `bert-large-uncased`
 `--no-bert-do-lower-case` | Instructs the BERT tokenizer to retain case information (setting should match the BERT model in use) | Perform lowercasing
 `--const-lada` | Number of lambda weight | 0.5
+`--model-name` | Name of model | test
+`--embedding-path` | Path to pre-trained embedding | N/A
 `--embedding-type` | Pre-trained embedding type | glove
 
 
@@ -88,8 +96,9 @@ Argument | Description | Default
 --- | --- | ---
 `--model-path-base` | Path base of saved model | N/A
 `--evalb-dir` |  Path to EVALB directory | `EVALB/`
-`--test-path` | Path to test trees | `data/23.auto.clean`
-`--test-path-raw` | Alternative path to test trees that is used for evalb only (used to double-check that evaluation against pre-processed trees does not contain any bugs) | Compare to trees from `--test-path`
+`--test-ptb-path` | Path to test trees | `data/23.auto.clean`
+`--dep-test-ptb-path` | Path to training dependency parsing | `data/ptb_test_3.3.0.sd`
+`--embedding-path` | Path to pre-trained embedding | `data/glove.6B.100d.txt.gz`
 `--eval-batch-size` | Number of examples to process in parallel when evaluating on the test set | 100
 
 If the parser was trained to have predicted part-of-speech tags as input (via the `--use-tags` flag) the test trees are assumed to have predicted part-of-speech tags. Otherwise, the tags in the test trees are not used as input to the parser.
