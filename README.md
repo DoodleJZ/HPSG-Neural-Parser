@@ -103,8 +103,6 @@ Argument | Description | Default
 `--embedding-path` | Path to pre-trained embedding | `data/glove.6B.100d.txt.gz`
 `--eval-batch-size` | Number of examples to process in parallel when evaluating on the test set | 100
 
-If the parser was trained to have predicted part-of-speech tags as input (via the `--use-tags` flag) the test trees are assumed to have predicted part-of-speech tags. Otherwise, the tags in the test trees are not used as input to the parser.
-
 As an example, after extracting the pre-trained model, you can evaluate it on the test set using the following command:
 
 ```
