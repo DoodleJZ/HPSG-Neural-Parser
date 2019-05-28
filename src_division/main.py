@@ -557,9 +557,8 @@ def run_test(args):
     print("Parsing test sentences...")
     start_time = time.time()
 
-
     punct_set = '.' '``' "''" ':' ','
-    print(punct_set)
+
     test_predicted = []
     for start_index in range(0, len(test_treebank), args.eval_batch_size):
         subbatch_trees = test_treebank[start_index:start_index + args.eval_batch_size]
@@ -624,7 +623,7 @@ def main():
     subparser.add_argument("--model-path-base", required=True)
     subparser.add_argument("--embedding-path", required=True)
     subparser.add_argument("--embedding-type", default="random")
-    subparser.add_argument("--model-name", default="division")
+    subparser.add_argument("--model-name", default="test")
     subparser.add_argument("--evalb-dir", default="EVALB/")
     subparser.add_argument("--dataset", default="ptb")
     subparser.add_argument("--train-ptb-path", default="data/02-21.10way.clean")
@@ -643,7 +642,6 @@ def main():
     subparser.add_argument("--epochs", type=int)
     subparser.add_argument("--checks-per-epoch", type=int, default=4)
     subparser.add_argument("--print-vocabs", action="store_true")
-    subparser.add_argument("--test-path-raw", type=str)
 
     subparser = subparsers.add_parser("test")
     subparser.set_defaults(callback=run_test)

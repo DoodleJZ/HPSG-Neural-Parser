@@ -630,7 +630,7 @@ def main():
     subparser.add_argument("--embedding-path", required=True)
     subparser.add_argument("--embedding-type", default="random")
 
-    subparser.add_argument("--model-name", default="joint")
+    subparser.add_argument("--model-name", default="test")
     subparser.add_argument("--evalb-dir", default="EVALB/")
 
     subparser.add_argument("--dataset", default="ptb")
@@ -651,7 +651,6 @@ def main():
     subparser.add_argument("--epochs", type=int, default=150)
     subparser.add_argument("--checks-per-epoch", type=int, default=4)
     subparser.add_argument("--print-vocabs", action="store_true")
-    subparser.add_argument("--test-path-raw", type=str)
 
     subparser = subparsers.add_parser("test")
     subparser.set_defaults(callback=run_test)
