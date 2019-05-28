@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea48a044-052b-4eaf-a427-ec1e50052642" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_division/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_division/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_division/pretrained_bert/modeling.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_division/pretrained_bert/modeling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_division/pretrained_bert/tokenization.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_division/pretrained_bert/tokenization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_joint/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_joint/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_joint/pretrained_bert/modeling.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_joint/pretrained_bert/modeling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_joint/pretrained_bert/tokenization.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_joint/pretrained_bert/tokenization.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,14 +35,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="144" />
+          <entry key="md" value="163" />
           <entry key="py" value="10" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="144" />
+          <entry key="Markdown" value="163" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Python" value="10" />
         </counts>
@@ -62,8 +55,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="625">
-                <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+              <first_editor relative-caret-position="368">
+                <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="47" />
               </first_editor>
               <second_editor />
             </state>
@@ -151,16 +144,6 @@
               <item name="HPSG-Neural-Parser" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="HPSG-Neural-Parser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HPSG-Neural-Parser" type="462c0819:PsiDirectoryNode" />
-              <item name="src_division" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HPSG-Neural-Parser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HPSG-Neural-Parser" type="462c0819:PsiDirectoryNode" />
-              <item name="src_joint" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -216,6 +199,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13590844" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -344,8 +328,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="625">
-            <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <first_editor relative-caret-position="368">
+            <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="47" />
           </first_editor>
           <second_editor />
         </state>

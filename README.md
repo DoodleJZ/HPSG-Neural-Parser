@@ -21,9 +21,10 @@ If you are primarily interested in training your own parsing models, skip to the
 #### Pre-trained Models (PyTorch)
 
 The following pre-trained parser models are available for download:
-* [`en_charlstm_dev.93.61.pt`](https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_charlstm_dev.93.61.pt): 
+* [`joint_cwt_best_dev=93.85_devuas=95.87_devlas=94.47`](https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_charlstm_dev.93.61.pt): 
 Our best English single-system parser based on Glove.
-* [`en_elmo_dev.95.21.pt`](https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_elmo_dev.95.21.pt): The best English single-system parser from our ACL 2018 paper. Using this parser requires ELMo weights, which must be downloaded separately.
+* [`en_elmo_dev.95.21.pt`](https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_elmo_dev.95.21.pt): 
+Our best English single-system parser based on BERT.
 
 To use ELMo embeddings, download the following files into the `data/` folder (preserving their names):
 
@@ -42,6 +43,7 @@ The dependency structures are mainly obtained by converting constituent structur
 java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile 02-21.10way.clean > ptb_train_3.3.0.sd
 ```
 
+For CTB, we use the same datasets and preprocessing from the [Distance Parser](https://github.com/hantek/distance-parser)
 The training code uses PyTorch and can be obtained by cloning this repository from GitHub. 
 
 ### Training Instructions
