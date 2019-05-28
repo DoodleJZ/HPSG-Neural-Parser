@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea48a044-052b-4eaf-a427-ec1e50052642" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_joint/joint_hpsg_decoder.pyx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_joint/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_joint/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="ea48a044-052b-4eaf-a427-ec1e50052642" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +21,12 @@
         <counts>
           <entry key="md" value="1" />
           <entry key="py" value="8" />
-          <entry key="sh" value="1" />
+          <entry key="sh" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="1" />
+          <entry key="Bash" value="2" />
           <entry key="Markdown" value="1" />
           <entry key="Python" value="8" />
         </counts>
@@ -89,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src_division/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1492">
@@ -97,6 +93,15 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -128,6 +133,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src_joint/Zparser.py" />
         <option value="$PROJECT_DIR$/src_joint/main.py" />
+        <option value="$PROJECT_DIR$/test.sh" />
       </list>
     </option>
   </component>
@@ -368,6 +374,13 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
         </state>
       </provider>
     </entry>
