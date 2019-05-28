@@ -21,9 +21,9 @@ If you are primarily interested in training your own parsing models, skip to the
 #### Pre-trained Models (PyTorch)
 
 The following pre-trained parser models are available for download:
-* [`joint_cwt_best_dev=93.85_devuas=95.87_devlas=94.47`](https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_charlstm_dev.93.61.pt): 
+* [`joint_cwt_best_dev=93.85_devuas=95.87_devlas=94.47`](https://github.com/DoodleZhou/HPSG-Neural-Parser/releases/download/models/joint_cwt_best_dev=93.85_devuas=95.87_devlas=94.47): 
 Our best English single-system parser based on Glove.
-* [`en_elmo_dev.95.21.pt`](https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_elmo_dev.95.21.pt): 
+* [`joint_bert_dev=95.55_devuas=96.67_devlas=94.86.pt`](https://github.com/DoodleZhou/HPSG-Neural-Parser/releases/download/models/joint_bert_dev=95.55_devuas=96.67_devlas=94.86.pt): 
 Our best English single-system parser based on BERT.
 
 To use ELMo embeddings, download the following files into the `data/` folder (preserving their names):
@@ -37,7 +37,7 @@ Pre-trained BERT weights will be automatically downloaded as needed by the `pyto
 
 ## Training
 
-The dependency structures are mainly obtained by converting constituent structure with version 3.3.0 of Stanford parser:
+The dependency structures are mainly obtained by converting constituent structure with version 3.3.0 of Stanford parser in the `data/` folder:
 
 ```
 java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile 02-21.10way.clean > ptb_train_3.3.0.sd
@@ -85,7 +85,6 @@ to train a Joint-Span parser, simply run:
 ```
 sh run_single.sh
 ```
-
 to train a Joint-Span parser with BERT, simply run:
 ```
 sh run_bert.sh
