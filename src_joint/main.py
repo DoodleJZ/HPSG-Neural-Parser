@@ -562,7 +562,6 @@ def run_test(args):
     start_time = time.time()
 
     punct_set = '.' '``' "''" ':' ','
-    print(punct_set)
 
     parser.eval()
     test_predicted = []

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea48a044-052b-4eaf-a427-ec1e50052642" name="Default Changelist" comment="" />
+    <list default="true" id="ea48a044-052b-4eaf-a427-ec1e50052642" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_joint/joint_hpsg_decoder.pyx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_joint/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_joint/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +24,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="1" />
-          <entry key="py" value="7" />
+          <entry key="py" value="8" />
           <entry key="sh" value="1" />
         </counts>
       </usages-collector>
@@ -28,13 +32,13 @@
         <counts>
           <entry key="Bash" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="Python" value="7" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="207" />
-          <entry key="py" value="10" />
+          <entry key="py" value="33" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
@@ -42,19 +46,19 @@
         <counts>
           <entry key="Markdown" value="207" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="10" />
+          <entry key="Python" value="33" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="277">
-                <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+              <first_editor relative-caret-position="120">
+                <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -64,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src_joint/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="649" column="68" selection-start-line="649" selection-start-column="66" selection-end-line="649" selection-end-column="68" />
+            <state relative-caret-position="585">
+              <caret line="563" column="37" selection-start-line="563" selection-start-column="37" selection-end-line="563" selection-end-column="37" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -74,9 +78,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src_division/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="1492">
               <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -108,9 +124,10 @@
         <option value="$PROJECT_DIR$/src_joint/pretrained_bert/modeling.py" />
         <option value="$PROJECT_DIR$/src_division/pretrained_bert/tokenization.py" />
         <option value="$PROJECT_DIR$/src_division/pretrained_bert/modeling.py" />
-        <option value="$PROJECT_DIR$/src_joint/main.py" />
         <option value="$PROJECT_DIR$/src_division/main.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src_joint/Zparser.py" />
+        <option value="$PROJECT_DIR$/src_joint/main.py" />
       </list>
     </option>
   </component>
@@ -142,6 +159,16 @@
               <item name="HPSG-Neural-Parser" type="b2602c69:ProjectViewProjectNode" />
               <item name="HPSG-Neural-Parser" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HPSG-Neural-Parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HPSG-Neural-Parser" type="462c0819:PsiDirectoryNode" />
+              <item name="src_division" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HPSG-Neural-Parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HPSG-Neural-Parser" type="462c0819:PsiDirectoryNode" />
+              <item name="src_joint" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -198,6 +225,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13590844" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -303,33 +331,43 @@
     <entry file="file://$PROJECT_DIR$/run_bert.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src_division/main.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
+        <state relative-caret-position="288">
+          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src_joint/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="649" column="68" selection-start-line="649" selection-start-column="66" selection-end-line="649" selection-end-column="68" />
+        <state relative-caret-position="585">
+          <caret line="563" column="37" selection-start-line="563" selection-start-column="37" selection-end-line="563" selection-end-column="37" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="277">
-            <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src_division/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1492">
+          <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
