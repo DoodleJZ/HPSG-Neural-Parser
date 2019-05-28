@@ -1,6 +1,13 @@
+# Based on new.prm (and by extension COLLINS.prm)
+# The only change from new.prm is increasing MAX_ERROR. The evaluation should be
+# identical to the standard setup, except that evalb won't give up early for a
+# parser that has just started training and does not yet produce good results.
+
 ##------------------------------------------##
 ## Debug mode                               ##
-##   print out data for individual sentence ##
+##   0: No debugging                        ##
+##   1: print data for individual sentence  ##
+##   2: print detailed bracketing info      ##
 ##------------------------------------------##
 DEBUG 0
 
@@ -12,7 +19,7 @@ DEBUG 0
 ##    The process will stop when this number##
 ##    of errors are accumulated.            ##
 ##------------------------------------------##
-MAX_ERROR 10
+MAX_ERROR 10000
 
 ##------------------------------------------##
 ## Cut-off length for statistics            ##
@@ -29,7 +36,7 @@ CUTOFF_LEN 40
 ##    0: unlabeled bracketing               ##
 ##    1: labeled bracketing                 ##
 ##------------------------------------------##
-LABELED 1                 
+LABELED 1
 
 ##------------------------------------------##
 ## Delete labels                            ##
@@ -41,11 +48,15 @@ LABELED 1
 ##    deildrens).                           ##
 ##------------------------------------------##
 DELETE_LABEL TOP
+DELETE_LABEL S1
 DELETE_LABEL -NONE-
 DELETE_LABEL ,
 DELETE_LABEL :
 DELETE_LABEL ``
 DELETE_LABEL ''
+DELETE_LABEL .
+DELETE_LABEL ?
+DELETE_LABEL !
 
 ##------------------------------------------##
 ## Delete labels for length calculation     ##
@@ -54,12 +65,28 @@ DELETE_LABEL ''
 ##------------------------------------------##
 DELETE_LABEL_FOR_LENGTH -NONE-
 
+##------------------------------------------##
+## Labels to be considered for misquote     ##
+##    (could be possesive or quote)         ##
+##------------------------------------------##
+QUOTE_LABEL ``
+QUOTE_LABEL ''
+QUOTE_LABEL POS
+
+##------------------------------------------##
+## These ones are less common, but          ##
+##    are on occasion output by parsers:    ##
+##------------------------------------------##
+QUOTE_LABEL NN
+QUOTE_LABEL CD
+QUOTE_LABEL VBZ
+QUOTE_LABEL :
 
 ##------------------------------------------##
 ## Equivalent labels, words                 ##
 ##     the pairs are considered equivalent  ##
 ##     This is non-directional.             ##
 ##------------------------------------------##
-EQ_LABEL T TT
+EQ_LABEL ADVP PRT
 
-EQ_WORD  This this
+# EQ_WORD  Example example
