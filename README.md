@@ -43,8 +43,9 @@ The dependency structures are mainly obtained by converting constituent structur
 java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile 02-21.10way.clean > ptb_train_3.3.0.sd
 ```
 
-For CTB, we use the same datasets and preprocessing from the [Distance Parser](https://github.com/hantek/distance-parser)
-The training code uses PyTorch and can be obtained by cloning this repository from GitHub. 
+For CTB, we use the same datasets and preprocessing from the [Distance Parser](https://github.com/hantek/distance-parser).
+For PTB, we use the same datasets and preprocessing from the [self-attentive-parser](https://github.com/hantek/distance-parser).
+[GloVe](https://nlp.stanford.edu/projects/glove) embeddings are optional. 
 
 ### Training Instructions
 
