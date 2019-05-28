@@ -7,8 +7,6 @@ This is a Python implementation of the parsers described in "Head-Driven Phrase 
 2. [Training](#training)
 3. [Credits](#credits)
 
-If you are primarily interested in training your own parsing models, skip to the [Training](#training) section of this README.
-
 ## Requirements
 
 * Python 3.6 or higher.
