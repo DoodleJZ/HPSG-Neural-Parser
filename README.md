@@ -77,6 +77,7 @@ Argument | Description | Default
 `--model-name` | Name of model | test
 `--embedding-path` | Path to pre-trained embedding | N/A
 `--embedding-type` | Pre-trained embedding type | glove
+`--dataset`     | Dataset type | ptb
 
 
 Additional arguments are available for other hyperparameters; see `make_hparams()` in `src/main.py`. These can be specified on the command line, such as `--num-layers 2` (for numerical parameters), `--use-tags` (for boolean parameters that default to False), or `--no-partitioned` (for boolean parameters that default to True).
@@ -104,6 +105,7 @@ Argument | Description | Default
 `--dep-test-ptb-path` | Path to training dependency parsing | `data/ptb_test_3.3.0.sd`
 `--embedding-path` | Path to pre-trained embedding | `data/glove.6B.100d.txt.gz`
 `--eval-batch-size` | Number of examples to process in parallel when evaluating on the test set | 100
+`--dataset`     | Dataset type | ptb
 
 As an example, after extracting the pre-trained model, you can evaluate it on the test set using the following command:
 
