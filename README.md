@@ -19,8 +19,8 @@ This is a Python implementation of the parsers described in "Head-Driven Phrase 
 #### Pre-trained Models (PyTorch)
 
 The following pre-trained parser models are available for download:
-* [`joint_cwt_best_dev=93.85_devuas=95.87_devlas=94.47`]: 
-Our best English single-system parser based on Glove.(We will release soon)
+* [`joint_cwt_best_dev=93.85_devuas=95.87_devlas=94.47`](https://drive.google.com/open?id=1FfEsMrA309lsEuKC5tsCwtX-mFZUl2rv): 
+Our best English single-system parser based on Glove.
 * [`joint_bert_dev=95.55_devuas=96.67_devlas=94.86.pt`]:
 Our best English single-system parser based on BERT.(We will release soon)
 
