@@ -24,7 +24,7 @@ Our best English single-system parser based on Glove.
 * [`joint_bert_dev=95.55_devuas=96.67_devlas=94.86.pt`]:
 Our best English single-system parser based on BERT.(We will release soon)
 
-The pre-trained model with Glove embeddings obtains 93.61 F-scores of constituent parsing and 96.09 UAS, 94.68 LAS of dependency parsing on the test set. 
+The pre-trained model with Glove embeddings obtains 93.78 F-scores of constituent parsing and 96.09 UAS, 94.68 LAS of dependency parsing on the test set. 
 
 The pre-trained model with BERT obtains 95.84 F-scores of constituent parsing and 97.00 UAS, 95.43 LAS of dependency parsing on the test set. 
 
