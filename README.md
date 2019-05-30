@@ -101,8 +101,8 @@ Argument | Description | Default
 --- | --- | ---
 `--model-path-base` | Path base of saved model | N/A
 `--evalb-dir` |  Path to EVALB directory | `EVALB/`
-`--test-ptb-path` | Path to test trees | `data/23.auto.clean`
-`--dep-test-ptb-path` | Path to training dependency parsing | `data/ptb_test_3.3.0.sd`
+`--test-ptb-path` | Path to test constituent parsing | `data/23.auto.clean`
+`--dep-test-ptb-path` | Path to test dependency parsing | `data/ptb_test_3.3.0.sd`
 `--embedding-path` | Path to pre-trained embedding | `data/glove.6B.100d.txt.gz`
 `--eval-batch-size` | Number of examples to process in parallel when evaluating on the test set | 100
 `--dataset`     | Dataset type | ptb
