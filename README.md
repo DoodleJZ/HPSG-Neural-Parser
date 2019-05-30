@@ -73,7 +73,7 @@ Argument | Description | Default
 `--use-bert` | Use pre-trained BERT word representations | Do not use BERT
 `--bert-model` | Pre-trained BERT model to use if `--use-bert` is passed | `bert-large-uncased`
 `--no-bert-do-lower-case` | Instructs the BERT tokenizer to retain case information (setting should match the BERT model in use) | Perform lowercasing
-`--const-lada` | Number of lambda weight | 0.5
+`--const-lada` | Lambda weight | 0.5
 `--model-name` | Name of model | test
 `--embedding-path` | Path to pre-trained embedding | N/A
 `--embedding-type` | Pre-trained embedding type | glove
