@@ -39,6 +39,7 @@ Pre-trained BERT weights will be automatically downloaded as needed by the `pyto
 
 ## Training
 
+Download the 3 PTB data files from https://github.com/nikitakit/self-attentive-parser/tree/master/data, and put them in the data/ folder.
 The dependency structures are mainly obtained by converting constituent structure with version 3.3.0 of [Stanford Parser](http://nlp.stanford.edu/software/lex-parser.html) in the `data/` folder:
 
 ```
