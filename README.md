@@ -4,8 +4,9 @@ This is a Python implementation of the parsers described in "Head-Driven Phrase 
 
 ## Contents
 1. [Requirements](#Requirements)
-2. [Training](#training)
-3. [Credits](#credits)
+2. [Training](#Training)
+3. [Citation](#Citation)
+4. [Credits](#Credits)
 
 ## Requirements
 
@@ -112,6 +113,21 @@ As an example, after extracting the pre-trained model, you can evaluate it on th
 
 ```
 sh test.sh
+```
+
+## Citation
+If you use this software for research, please cite our paper as follows:
+```
+
+@inproceedings{zhou-zhao-2019-head,
+    title = "Head-Driven Phrase Structure Grammar Parsing on {P}enn Treebank",
+    author = "Zhou, Junru  and Zhao, Hai",
+    booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2019",
+    address = "Florence, Italy",
+    publisher = "Association for Computational Linguistics",
+}
 ```
 
 ## Credits

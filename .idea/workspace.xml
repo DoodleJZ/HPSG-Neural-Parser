@@ -15,9 +15,11 @@
     <session id="-1093375128">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.2" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -36,14 +38,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="287" />
+          <entry key="md" value="308" />
           <entry key="py" value="33" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="287" />
+          <entry key="Markdown" value="308" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Python" value="33" />
         </counts>
@@ -56,8 +58,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="303">
-                <caret line="21" column="126" selection-start-line="21" selection-start-column="126" selection-end-line="21" selection-end-column="126" />
+              <first_editor relative-caret-position="120">
+                <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               </first_editor>
               <second_editor />
             </state>
@@ -67,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src_joint/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
+            <state relative-caret-position="8160">
               <caret line="563" column="37" selection-start-line="563" selection-start-column="37" selection-end-line="563" selection-end-column="37" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -79,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -91,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src_division/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1492">
+            <state relative-caret-position="9090">
               <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -233,21 +235,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13590844" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13876967" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3299363" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" visible="true" weight="0.09426752" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" weight="0.09426752" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.3299363" />
       <window_info anchor="bottom" id="Terminal" order="11" />
@@ -337,19 +339,19 @@
     <entry file="file://$PROJECT_DIR$/src_joint/pretrained_bert/optimization.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src_joint/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
+        <state relative-caret-position="8160">
           <caret line="563" column="37" selection-start-line="563" selection-start-column="37" selection-end-line="563" selection-end-column="37" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -357,9 +359,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src_division/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1492">
+        <state relative-caret-position="9090">
           <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -376,16 +388,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run_bert.sh">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="303">
-            <caret line="21" column="126" selection-start-line="21" selection-start-column="126" selection-end-line="21" selection-end-column="126" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
     </entry>
   </component>
 </project>
