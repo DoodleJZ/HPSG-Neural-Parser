@@ -615,6 +615,65 @@ def run_test(args):
     print(
         '============================================================================================================================')
 
+def run_parse(args):
+
+    print("Loading model from {}...".format(args.model_path_base))
+    assert args.model_path_base.endswith(".pt"), "Only pytorch savefiles supported"
+
+    info = torch_load(args.model_path_base)
+    assert 'hparams' in info['spec'], "Older savefiles not supported"
+    parser = Zparser.ChartParser.from_spec(info['spec'], info['state_dict'])
+    parser.eval()
+    print("Parsing sentences...")
+    with open(args.input_path) as input_file:
+        sentences = input_file.readlines()
+    sentences = [sentence.split() for sentence in sentences]
+
+    # Parser does not do tagging, so use a dummy tag when parsing from raw text
+    if 'UNK' in parser.tag_vocab.indices:
+        dummy_tag = 'UNK'
+    else:
+        dummy_tag = parser.tag_vocab.value(0)
+
+    start_time = time.time()
+
+    def save_data(syntree_pred, cun):
+        pred_head = [[leaf.father for leaf in tree.leaves()] for tree in syntree_pred]
+        pred_type = [[leaf.type for leaf in tree.leaves()] for tree in syntree_pred]
+        appent_string = "_" + str(cun) + ".txt"
+        if args.output_path_synconst != '-':
+            with open(args.output_path_synconst + appent_string, 'w') as output_file:
+                for tree in syntree_pred:
+                    output_file.write("{}\n".format(tree.pred_linearize()))
+            print("Output written to:", args.output_path_synconst)
+
+        if args.output_path_syndep != '-':
+            with open(args.output_path_syndep + appent_string, 'w') as output_file:
+                for heads in pred_head:
+                    output_file.write("{}\n".format(heads))
+            print("Output written to:", args.output_path_syndep)
+
+        if args.output_path_synlabel != '-':
+            with open(args.output_path_synlabel + appent_string, 'w') as output_file:
+                for labels in pred_type:
+                    output_file.write("{}\n".format(labels))
+            print("Output written to:", args.output_path_synlabel)
+
+    syntree_pred = []
+    cun = 0
+    for start_index in range(0, len(sentences), args.eval_batch_size):
+        subbatch_sentences = sentences[start_index:start_index+args.eval_batch_size]
+
+        subbatch_sentences = [[(dummy_tag, word) for word in sentence] for sentence in subbatch_sentences]
+        syntree, _ = parser.parse_batch(subbatch_sentences)
+        syntree_pred.extend(syntree)
+        if args.save_per_sentences <= len(syntree_pred) and args.save_per_sentences > 0:
+            save_data(syntree_pred, cun)
+            syntree_pred = []
+            cun += 1
+
+    if 0 < len(syntree_pred):
+        save_data(syntree_pred, cun)
 
 def main():
     parser = argparse.ArgumentParser()
@@ -662,6 +721,18 @@ def main():
     subparser.add_argument("--consttest-ctb-path", default="data/test_ctb.txt")
     subparser.add_argument("--deptest-ctb-path", default="data/test_ctb.conll")
     subparser.add_argument("--eval-batch-size", type=int, default=100)
+
+    subparser = subparsers.add_parser("parse")
+    subparser.set_defaults(callback=run_parse)
+    subparser.add_argument("--model-path-base", required=True)
+    subparser.add_argument("--embedding-path", default="data/glove.6B.100d.txt.gz")
+    subparser.add_argument("--dataset", default="ptb")
+    subparser.add_argument("--save-per-sentences", type=int, default=-1)
+    subparser.add_argument("--input-path", type=str, required=True)
+    subparser.add_argument("--output-path-synconst", type=str, default="-")
+    subparser.add_argument("--output-path-syndep", type=str, default="-")
+    subparser.add_argument("--output-path-synlabel", type=str, default="-")
+    subparser.add_argument("--eval-batch-size", type=int, default=50)
 
     args = parser.parse_args()
     args.callback(args)
