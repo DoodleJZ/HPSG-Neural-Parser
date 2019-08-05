@@ -121,7 +121,6 @@ sh parse.sh
 ## Citation
 If you use this software for research, please cite our paper as follows:
 ```
-
 @inproceedings{zhou-zhao-2019-head,
     title = "Head-Driven Phrase Structure Grammar Parsing on {P}enn Treebank",
     author = "Zhou, Junru  and Zhao, Hai",
