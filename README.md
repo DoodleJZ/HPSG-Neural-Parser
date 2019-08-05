@@ -114,7 +114,7 @@ As an example, after extracting the pre-trained model, you can evaluate it on th
 ```
 sh test.sh
 ```
-If you want to parse the sentences, after setting the input file and run following command:
+If you want to parse the sentences, after setting the input file and pre-trained model, run following command:
 ```
 sh parse.sh
 ```
