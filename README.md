@@ -114,7 +114,10 @@ As an example, after extracting the pre-trained model, you can evaluate it on th
 ```
 sh test.sh
 ```
-
+If you want to parse the sentences, after setting the input file and run following command:
+```
+sh parse.sh
+```
 ## Citation
 If you use this software for research, please cite our paper as follows:
 ```
