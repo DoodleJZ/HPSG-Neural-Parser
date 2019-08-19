@@ -83,7 +83,7 @@ class BatchIndices:
         self.max_len = int(np.max(self.boundaries_np[1:] - self.boundaries_np[:-1]))
 
 #
-class FeatureDropoutFunction(nn.functional._functions.dropout.InplaceFunction):
+class FeatureDropoutFunction(torch.autograd.function.InplaceFunction):
     @classmethod
     def forward(cls, ctx, input, batch_idxs, p=0.5, train=False, inplace=False):
         if p < 0 or p > 1:
