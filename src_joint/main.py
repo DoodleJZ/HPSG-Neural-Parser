@@ -98,7 +98,7 @@ def make_hparams():
         bert_model="bert-large-uncased",
         bert_do_lower_case=True,
         bert_transliterate="",
-        xlnet_model="xlnet-base-cased",
+        xlnet_model="xlnet-large-cased",
         xlnet_do_lower_case=False,
         )
 
