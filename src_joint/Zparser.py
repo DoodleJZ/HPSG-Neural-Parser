@@ -619,6 +619,19 @@ def get_elmo_class():
             return {'elmo_representations': elmo_representations, 'mask': mask}
     return ModElmo
 
+def get_xlnet(xlnet_model, xlnet_do_lower_case):
+    # Avoid a hard dependency on BERT by only importing it if it's being used
+    from pytorch_transformers import (WEIGHTS_NAME, XLNetModel,
+                                      XLMConfig, XLMForSequenceClassification,
+                                      XLMTokenizer, XLNetConfig,
+                                      XLNetForSequenceClassification,
+                                      XLNetTokenizer)
+    tokenizer = XLNetTokenizer.from_pretrained(xlnet_model, do_lower_case=xlnet_do_lower_case)
+    xlnet = XLNetModel.from_pretrained(xlnet_model)
+
+    return tokenizer, xlnet
+
+
 
 def get_bert(bert_model, bert_do_lower_case):
     # Avoid a hard dependency on BERT by only importing it if it's being used
@@ -854,6 +867,7 @@ class ChartParser(nn.Module):
         self.char_encoder = None
         self.elmo = None
         self.bert = None
+        self.xlnet = None
         ex_dim = self.d_content
         if self.hparams.use_cat:
             cun = 0
@@ -861,7 +875,7 @@ class ChartParser(nn.Module):
                 ex_dim = ex_dim // 2 #word dim = self.d_content/2
             if hparams.use_chars_lstm:
                 cun = cun+1
-            if hparams.use_elmo or hparams.use_bert:
+            if hparams.use_elmo or hparams.use_bert or hparams.use_xlnet:
                 cun = cun + 1
             if cun > 0 :
                 ex_dim = ex_dim // cun
@@ -890,6 +904,20 @@ class ChartParser(nn.Module):
             # Reshapes the embeddings to match the model dimension, and making
             # the projection trainable appears to improve parsing accuracy
             self.project_elmo = nn.Linear(d_elmo_annotations, ex_dim, bias=False)
+
+        if hparams.use_xlnet:
+
+            self.xlnet_tokenizer, self.xlnet = get_xlnet(hparams.xlnet_model, hparams.xlnet_do_lower_case)
+            if hparams.bert_transliterate:
+                from transliterate import TRANSLITERATIONS
+                self.bert_transliterate = TRANSLITERATIONS[hparams.bert_transliterate]
+            else:
+                self.bert_transliterate = None
+
+            d_xlnet_annotations = self.xlnet.d_model
+            self.xlnet_max_len = 512
+
+            self.project_xlnet = nn.Linear(d_xlnet_annotations, ex_dim, bias=False)
 
         if hparams.use_bert or hparams.use_bert_only:
             self.bert_tokenizer, self.bert = get_bert(hparams.bert_model, hparams.bert_do_lower_case)
@@ -995,6 +1023,13 @@ class ChartParser(nn.Module):
             hparams['bert_do_lower_case'] = False
         if 'bert_transliterate' not in hparams:
             hparams['bert_transliterate'] = ""
+
+        if 'use_xlnet' not in hparams:
+            hparams['use_xlnet'] = False
+        if 'xlnet_model' not in hparams:
+            hparams['xlnet_model'] = "xlnet-large-cased"
+        if 'xlnet_do_lower_case' not in hparams:
+            hparams['xlnet_do_lower_case'] = False
 
         spec['hparams'] = makehp.HParams(**hparams)
         res = cls(**spec)
@@ -1205,6 +1240,82 @@ class ChartParser(nn.Module):
 
                 # For now, just project the features from the last word piece in each word
                 extra_content_annotations = self.project_bert(features_packed)
+
+        if self.xlnet is not None:
+            #(XLNet/GPT pattern): A + [SEP] + B + [SEP] + [CLS]
+            all_input_ids = np.zeros((len(sentences), self.xlnet_max_len), dtype=int)
+            all_input_mask = np.zeros((len(sentences), self.xlnet_max_len), dtype=int)
+            all_word_start_mask = np.zeros((len(sentences), self.xlnet_max_len), dtype=int)
+            all_word_end_mask = np.zeros((len(sentences), self.xlnet_max_len), dtype=int)
+
+            subword_max_len = 0
+            for snum, sentence in enumerate(sentences):
+                tokens = []
+                word_start_mask = []
+                word_end_mask = []
+
+                # tokens.append("[CLS]")
+                # word_start_mask.append(1)
+                # word_end_mask.append(1)
+
+                if self.bert_transliterate is None:
+                    cleaned_words = []
+                    for _, word in sentence:
+                        word = BERT_TOKEN_MAPPING.get(word, word)
+                        if word == "n't" and cleaned_words:
+                            cleaned_words[-1] = cleaned_words[-1] + "n"
+                            word = "'t"
+                        cleaned_words.append(word)
+                else:
+                    # When transliterating, assume that the token mapping is
+                    # taken care of elsewhere
+                    cleaned_words = [self.bert_transliterate(word) for _, word in sentence]
+
+                for word in cleaned_words:
+                    word_tokens = self.xlnet_tokenizer.tokenize(word)
+                    if len(word_tokens) ==0:
+                        word_tokens = [self.xlnet_tokenizer.unk_token]
+                    for _ in range(len(word_tokens)):
+                        word_start_mask.append(0)
+                        word_end_mask.append(0)
+                    word_start_mask[len(tokens)] = 1
+                    word_end_mask[-1] = 1
+                    tokens.extend(word_tokens)
+                tokens.append(self.xlnet_tokenizer.sep_token)
+                word_start_mask.append(1)
+                word_end_mask.append(1)
+                tokens.append(self.xlnet_tokenizer.cls_token)
+                word_start_mask.append(1)
+                word_end_mask.append(1)
+
+                input_ids = self.xlnet_tokenizer.convert_tokens_to_ids(tokens)
+
+                # The mask has 1 for real tokens and 0 for padding tokens. Only real
+                # tokens are attended to.
+                input_mask = [1] * len(input_ids)
+
+                subword_max_len = max(subword_max_len, len(input_ids))
+
+
+                all_input_ids[snum, self.xlnet_max_len - len(input_ids):] = input_ids
+                all_input_mask[snum, self.xlnet_max_len - len(input_mask):] = input_mask
+                all_word_start_mask[snum, self.xlnet_max_len - len(word_start_mask):] = word_start_mask
+                all_word_end_mask[snum, self.xlnet_max_len - len(word_end_mask):] = word_end_mask
+
+            all_input_ids = from_numpy(np.ascontiguousarray(all_input_ids[:, self.xlnet_max_len - subword_max_len:]))
+            all_input_mask = from_numpy(np.ascontiguousarray(all_input_mask[:, self.xlnet_max_len - subword_max_len:]))
+            all_word_start_mask = from_numpy(np.ascontiguousarray(all_word_start_mask[:, self.xlnet_max_len - subword_max_len:]))
+            all_word_end_mask = from_numpy(np.ascontiguousarray(all_word_end_mask[:, self.xlnet_max_len - subword_max_len:]))
+            transformer_outputs = self.xlnet(all_input_ids, attention_mask=all_input_mask)
+            # features = all_encoder_layers[-1]
+            features = transformer_outputs[0]
+
+            features_packed = features.masked_select(all_word_end_mask.to(torch.uint8).unsqueeze(-1)).reshape(-1,
+                                                                                                              features.shape[
+                                                                                                                  -1])
+
+            # For now, just project the features from the last word piece in each word
+            extra_content_annotations = self.project_xlnet(features_packed)
 
         if self.encoder is not None:
 

@@ -15,7 +15,7 @@ This is a Python implementation of the parsers described in "Head-Driven Phrase 
 * [PyTorch](http://pytorch.org/) 0.4.0. This code has not been tested with PyTorch 1.0, but it should work.
 * [EVALB](http://nlp.cs.nyu.edu/evalb/). Before starting, run `make` inside the `EVALB/` directory to compile an `evalb` executable. This will be called from Python for evaluation. 
 * [AllenNLP](http://allennlp.org/) 0.7.0 or any compatible version (only required when using ELMo word representations)
-* [pytorch-pretrained-bert](https://github.com/huggingface/pytorch-pretrained-BERT) 0.4.0 or any compatible version (only required when using BERT word representations)
+* [pytorch-transformers](https://github.com/huggingface/pytorch-transformers) PyTorch 1.0.0+ or any compatible version (only required when using BERT and XLNet, XLNet only for joint span version.)
 
 #### Pre-trained Models (PyTorch)
 
@@ -73,8 +73,11 @@ Argument | Description | Default
 `--use-chars-lstm` | Use learned CharLSTM word representations | Do not use CharLSTM
 `--use-elmo` | Use pre-trained ELMo word representations | Do not use ELMo
 `--use-bert` | Use pre-trained BERT word representations | Do not use BERT
+`--use-xlnet` | Use pre-trained BERT word representations | Do not use XLNet
 `--bert-model` | Pre-trained BERT model to use if `--use-bert` is passed | `bert-large-uncased`
 `--no-bert-do-lower-case` | Instructs the BERT tokenizer to retain case information (setting should match the BERT model in use) | Perform lowercasing
+`--xlnet-model` | Pre-trained XLNet model to use if `--use-xlnet` is passed | `xlnet-large-cased`
+`--no-xlnet-do-lower-case` | Instructs the XLNet tokenizer to retain case information (setting should match the XLNet model in use) | Perform uppercasing
 `--const-lada` | Lambda weight | 0.5
 `--model-name` | Name of model | test
 `--embedding-path` | Path to pre-trained embedding | N/A

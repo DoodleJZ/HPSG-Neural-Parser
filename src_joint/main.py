@@ -74,6 +74,7 @@ def make_hparams():
         use_words=False,
         use_elmo = False,
         use_bert=False,
+        use_xlnet = False,
         use_bert_only=False,
         use_chars_lstm=False,
 
@@ -97,6 +98,8 @@ def make_hparams():
         bert_model="bert-large-uncased",
         bert_do_lower_case=True,
         bert_transliterate="",
+        xlnet_model="xlnet-base-cased",
+        xlnet_do_lower_case=False,
         )
 
 def count_wh(str, data, heads, types):
