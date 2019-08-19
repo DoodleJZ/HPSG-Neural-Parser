@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea48a044-052b-4eaf-a427-ec1e50052642" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src_division/Zparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_division/Zparser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_joint/Zparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src_joint/Zparser.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="87" column="68" selection-start-line="87" selection-start-column="68" selection-end-line="87" selection-end-column="68" />
+            <state relative-caret-position="360">
+              <caret line="637" column="29" selection-start-line="637" selection-start-column="29" selection-end-line="637" selection-end-column="29" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
                 <element signature="e#43663#47277#0" />
@@ -103,7 +102,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src_division/Zparser.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
@@ -164,8 +163,8 @@
         <option value="$PROJECT_DIR$/parse.sh" />
         <option value="$PROJECT_DIR$/src_joint/main.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src_joint/Zparser.py" />
         <option value="$PROJECT_DIR$/src_division/Zparser.py" />
+        <option value="$PROJECT_DIR$/src_joint/Zparser.py" />
       </list>
     </option>
   </component>
@@ -414,23 +413,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="87" column="68" selection-start-line="87" selection-start-column="68" selection-end-line="87" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#43663#47277#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src_division/Zparser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="85" column="68" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src_joint/Zparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="637" column="29" selection-start-line="637" selection-start-column="29" selection-end-line="637" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#43663#47277#0" />
           </folding>
         </state>
       </provider>
