@@ -100,6 +100,7 @@ def make_hparams():
         bert_transliterate="",
         xlnet_model="xlnet-large-cased",
         xlnet_do_lower_case=False,
+        pad_left=False,
         )
 
 def count_wh(str, data, heads, types):

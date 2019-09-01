@@ -1030,6 +1030,8 @@ class ChartParser(nn.Module):
             hparams['xlnet_model'] = "xlnet-large-cased"
         if 'xlnet_do_lower_case' not in hparams:
             hparams['xlnet_do_lower_case'] = False
+        if 'pad_left' not in hparams:
+            hparams['pad_left'] = False
 
         spec['hparams'] = makehp.HParams(**hparams)
         res = cls(**spec)
@@ -1257,6 +1259,10 @@ class ChartParser(nn.Module):
                 # tokens.append("[CLS]")
                 # word_start_mask.append(1)
                 # word_end_mask.append(1)
+                if not self.hparams.pad_left:
+                    tokens.append(self.xlnet_tokenizer.cls_token)
+                    word_start_mask.append(1)
+                    word_end_mask.append(1)
 
                 if self.bert_transliterate is None:
                     cleaned_words = []
@@ -1284,9 +1290,11 @@ class ChartParser(nn.Module):
                 tokens.append(self.xlnet_tokenizer.sep_token)
                 word_start_mask.append(1)
                 word_end_mask.append(1)
-                tokens.append(self.xlnet_tokenizer.cls_token)
-                word_start_mask.append(1)
-                word_end_mask.append(1)
+
+                if self.hparams.pad_left:
+                    tokens.append(self.xlnet_tokenizer.cls_token)
+                    word_start_mask.append(1)
+                    word_end_mask.append(1)
 
                 input_ids = self.xlnet_tokenizer.convert_tokens_to_ids(tokens)
 
@@ -1296,16 +1304,32 @@ class ChartParser(nn.Module):
 
                 subword_max_len = max(subword_max_len, len(input_ids))
 
+                if self.hparams.pad_left:
+                    all_input_ids[snum, self.xlnet_max_len - len(input_ids):] = input_ids
+                    all_input_mask[snum, self.xlnet_max_len - len(input_mask):] = input_mask
+                    all_word_start_mask[snum, self.xlnet_max_len - len(word_start_mask):] = word_start_mask
+                    all_word_end_mask[snum, self.xlnet_max_len - len(word_end_mask):] = word_end_mask
+                else:
+                    all_input_ids[snum, :len(input_ids)] = input_ids
+                    all_input_mask[snum, :len(input_mask)] = input_mask
+                    all_word_start_mask[snum, :len(word_start_mask)] = word_start_mask
+                    all_word_end_mask[snum, :len(word_end_mask)] = word_end_mask
 
-                all_input_ids[snum, self.xlnet_max_len - len(input_ids):] = input_ids
-                all_input_mask[snum, self.xlnet_max_len - len(input_mask):] = input_mask
-                all_word_start_mask[snum, self.xlnet_max_len - len(word_start_mask):] = word_start_mask
-                all_word_end_mask[snum, self.xlnet_max_len - len(word_end_mask):] = word_end_mask
+            if self.hparams.pad_left:
+                all_input_ids = from_numpy(np.ascontiguousarray(all_input_ids[:, self.xlnet_max_len - subword_max_len:]))
+                all_input_mask = from_numpy(np.ascontiguousarray(all_input_mask[:, self.xlnet_max_len - subword_max_len:]))
+                all_word_start_mask = from_numpy(np.ascontiguousarray(all_word_start_mask[:, self.xlnet_max_len - subword_max_len:]))
+                all_word_end_mask = from_numpy(np.ascontiguousarray(all_word_end_mask[:, self.xlnet_max_len - subword_max_len:]))
+            else:
+                all_input_ids = from_numpy(
+                    np.ascontiguousarray(all_input_ids[:, :subword_max_len]))
+                all_input_mask = from_numpy(
+                    np.ascontiguousarray(all_input_mask[:, :subword_max_len]))
+                all_word_start_mask = from_numpy(
+                    np.ascontiguousarray(all_word_start_mask[:, :subword_max_len]))
+                all_word_end_mask = from_numpy(
+                    np.ascontiguousarray(all_word_end_mask[:, :subword_max_len]))
 
-            all_input_ids = from_numpy(np.ascontiguousarray(all_input_ids[:, self.xlnet_max_len - subword_max_len:]))
-            all_input_mask = from_numpy(np.ascontiguousarray(all_input_mask[:, self.xlnet_max_len - subword_max_len:]))
-            all_word_start_mask = from_numpy(np.ascontiguousarray(all_word_start_mask[:, self.xlnet_max_len - subword_max_len:]))
-            all_word_end_mask = from_numpy(np.ascontiguousarray(all_word_end_mask[:, self.xlnet_max_len - subword_max_len:]))
             transformer_outputs = self.xlnet(all_input_ids, attention_mask=all_input_mask)
             # features = all_encoder_layers[-1]
             features = transformer_outputs[0]
