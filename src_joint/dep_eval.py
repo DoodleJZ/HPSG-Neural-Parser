@@ -69,7 +69,7 @@ def eval(batch_size, words, postags, heads_pred, types_pred, heads, types,length
 
             if heads_pred[i][j] == 0:
                 total_root += 1
-                corr_root += 1 if heads_pred[i][j] == 0 else 0
+                corr_root += 1 if int(heads[i][j]) == 0 else 0
 
         ucomplete_match += ucm
         lcomplete_match += lcm
