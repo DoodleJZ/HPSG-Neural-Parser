@@ -632,16 +632,25 @@ def get_xlnet(xlnet_model, xlnet_do_lower_case):
     return tokenizer, xlnet
 
 
-
 def get_bert(bert_model, bert_do_lower_case):
     # Avoid a hard dependency on BERT by only importing it if it's being used
-    from pytorch_transformers import BertTokenizer, BertModel
+    from pretrained_bert import BertTokenizer, BertModel
     if bert_model.endswith('.tar.gz'):
         tokenizer = BertTokenizer.from_pretrained(bert_model.replace('.tar.gz', '-vocab.txt'), do_lower_case=bert_do_lower_case)
     else:
         tokenizer = BertTokenizer.from_pretrained(bert_model, do_lower_case=bert_do_lower_case)
     bert = BertModel.from_pretrained(bert_model)
     return tokenizer, bert
+
+# def get_bert(bert_model, bert_do_lower_case):
+#     # Avoid a hard dependency on BERT by only importing it if it's being used
+#     from pytorch_transformers import BertTokenizer, BertModel
+#     if bert_model.endswith('.tar.gz'):
+#         tokenizer = BertTokenizer.from_pretrained(bert_model.replace('.tar.gz', '-vocab.txt'), do_lower_case=bert_do_lower_case)
+#     else:
+#         tokenizer = BertTokenizer.from_pretrained(bert_model, do_lower_case=bert_do_lower_case)
+#     bert = BertModel.from_pretrained(bert_model)
+#     return tokenizer, bert
 
 #
 class BiLinear(nn.Module):
