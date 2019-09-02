@@ -24,10 +24,14 @@ The following pre-trained parser models are available for download:
 Our best English single-system parser based on Glove.
 * [`joint_bert_dev=95.55_devuas=96.67_devlas=94.86.pt`](https://drive.google.com/open?id=1TNsJeWVp74iuGINStSfa9z25XwzwHBXX):
 Our best English single-system parser based on BERT.
+* [`joint_xlnet_dev=96.03_devuas=96.96_devlas=95.32.pt`]
+(Release later)Our best English single-system parser based on XLNet.
 
 The pre-trained model with Glove embeddings obtains 93.78 F-scores of constituent parsing and 96.09 UAS, 94.68 LAS of dependency parsing on the test set. 
 
 The pre-trained model with BERT obtains 95.84 F-scores of constituent parsing and 97.00 UAS, 95.43 LAS of dependency parsing on the test set. 
+
+The pre-trained model with XLNet obtains 96.33 F-scores of constituent parsing and 97.20 UAS, 95.72 LAS of dependency parsing on the test set. 
 
 To use ELMo embeddings, download the following files into the `data/` folder (preserving their names):
 
@@ -36,7 +40,7 @@ To use ELMo embeddings, download the following files into the `data/` folder (pr
 
 There is currently no command-line option for configuring the locations/names of the ELMo files.
 
-Pre-trained BERT weights will be automatically downloaded as needed by the `pytorch-pretrained-bert` package.
+Pre-trained BERT and XLNet weights will be automatically downloaded as needed by the `pytorch-transformers` package.
 
 ## Training
 
@@ -73,7 +77,8 @@ Argument | Description | Default
 `--use-chars-lstm` | Use learned CharLSTM word representations | Do not use CharLSTM
 `--use-elmo` | Use pre-trained ELMo word representations | Do not use ELMo
 `--use-bert` | Use pre-trained BERT word representations | Do not use BERT
-`--use-xlnet` | Use pre-trained BERT word representations | Do not use XLNet
+`--use-xlnet` | Use pre-trained XLNet word representations | Do not use XLNet
+`--pad-left` | When using pre-trained XLNet padding on left | Do not pad on left
 `--bert-model` | Pre-trained BERT model to use if `--use-bert` is passed | `bert-large-uncased`
 `--no-bert-do-lower-case` | Instructs the BERT tokenizer to retain case information (setting should match the BERT model in use) | Perform lowercasing
 `--xlnet-model` | Pre-trained XLNet model to use if `--use-xlnet` is passed | `xlnet-large-cased`
@@ -97,6 +102,10 @@ sh run_single.sh
 to train a Joint-Span parser with BERT, simply run:
 ```
 sh run_bert.sh
+```
+to train a Joint-Span parser with XLNet, simply run:
+```
+sh run_xlnet.sh
 ```
 ### Evaluation Instructions
 
