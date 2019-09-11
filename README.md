@@ -24,8 +24,8 @@ The following pre-trained parser models are available for download:
 Our best English single-system parser based on Glove.
 * [`joint_bert_dev=95.55_devuas=96.67_devlas=94.86.pt`](https://drive.google.com/open?id=1TNsJeWVp74iuGINStSfa9z25XwzwHBXX):
 Our best English single-system parser based on BERT.
-* [`joint_xlnet_dev=96.03_devuas=96.96_devlas=95.32.pt`]
-(Release later)Our best English single-system parser based on XLNet.
+* [`joint_xlnet_dev=96.03_devuas=96.96_devlas=95.32.pt`](https://drive.google.com/open?id=1wF0FoAhG3MarzLrQTz8zTSygMzbZSuNA):
+Our best English single-system parser based on XLNet.
 
 The pre-trained model with Glove embeddings obtains 93.78 F-scores of constituent parsing and 96.09 UAS, 94.68 LAS of dependency parsing on the test set. 
 
