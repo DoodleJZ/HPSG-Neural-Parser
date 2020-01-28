@@ -648,7 +648,7 @@ def run_parse(args):
         if args.output_path_synconst != '-':
             with open(args.output_path_synconst + appent_string, 'w') as output_file:
                 for tree in syntree_pred:
-                    output_file.write("{}\n".format(tree.linearize()))
+                    output_file.write("{}\n".format(tree.convert().linearize()))
             print("Output written to:", args.output_path_synconst)
 
         if args.output_path_syndep != '-':
